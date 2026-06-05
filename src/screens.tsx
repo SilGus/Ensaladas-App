@@ -427,6 +427,7 @@ export function ListaCompras({ cart, goModoCocina, goInicio, onBottomNav, onUpda
     </div>
   );
 }
+// <-- AQUI RECIEN CIERRA LA FUNCION ListaCompras
 
 // Preparación
 export function ModoCocina({ cart, onBack, onFinishClear, onBottomNav, onGoCatalogo, onGoHistorial }: { cart: CartItem[], onBack: () => void, onFinishClear: () => void; onBottomNav: (s: string) => void; onGoCatalogo: () => void; onGoHistorial: () => void; }) {
