@@ -411,7 +411,7 @@ export function ListaCompras({ cart, goModoCocina, goInicio, onBottomNav, onUpda
 
       </main>
 
-      <div className="fixed bottom-[80px] left-0 w-full px-margin-mobile pb-4 pt-6 bg-gradient-to-t from-background via-background to-transparent z-40 max-w-3xl mx-auto right-0 md:bottom-[0px] md:pb-8">
+       <div className="fixed bottom-[80px] left-0 w-full px-margin-mobile pb-4 pt-6 bg-gradient-to-t from-background via-background to-transparent z-40 max-w-3xl mx-auto right-0 md:bottom-[0px] md:pb-8">
         <div className="flex flex-col gap-3">
           <button onClick={handleWhatsApp} className="w-full min-h-[52px] py-3 px-4 bg-primary text-on-primary rounded-full flex items-center justify-center gap-2 font-label-lg shadow-md hover:bg-primary-container transition-colors active:scale-[0.98] text-center">
             <span className="material-symbols-outlined icon-fill">chat</span>
@@ -425,7 +425,7 @@ export function ListaCompras({ cart, goModoCocina, goInicio, onBottomNav, onUpda
       </div>
       <BottomNav active="lista" onNavigate={onBottomNav} />
     </div>
-        )
+  );
 }
 
 // Preparación
