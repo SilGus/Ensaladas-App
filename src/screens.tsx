@@ -425,7 +425,7 @@ export function ListaCompras({ cart, goModoCocina, goInicio, onBottomNav, onUpda
       </div>
       <BottomNav active="lista" onNavigate={onBottomNav} />
     </div>
-  ;
+        )
 }
 
 // Preparación
