@@ -408,6 +408,7 @@ export function ListaCompras({ cart, goModoCocina, goInicio, onBottomNav, onUpda
             </div>
           </section>
         ))}
+
       </main>
 
       <div className="fixed bottom-[80px] left-0 w-full px-margin-mobile pb-4 pt-6 bg-gradient-to-t from-background via-background to-transparent z-40 max-w-3xl mx-auto right-0 md:bottom-[0px] md:pb-8">
