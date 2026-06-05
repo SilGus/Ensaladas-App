@@ -45,10 +45,10 @@ export function Inicio({ onNewList, onHistory, onBottomNav }: { onNewList: () =>
         <h1 className="font-display-lg text-display-lg font-bold text-primary">Ensaladas en Frasco</h1>
       </header>
       <main className="flex-grow flex flex-col items-center justify-center px-margin-mobile max-w-screen-md mx-auto w-full gap-stack-lg">
-      <div className="flex justify-center my-6">
-          <img 
-            src="/assets/tapa.jpg" 
-            alt="Ensaladas en frasco" 
+        <div className="flex justify-center my-6">
+          <img
+            src="/assets/tapa.jpg"
+            alt="Ensaladas en frasco"
             className="w-full max-w-[300px] h-auto rounded-2xl shadow-lg"
           />
         </div>
@@ -72,8 +72,8 @@ export function Inicio({ onNewList, onHistory, onBottomNav }: { onNewList: () =>
 export function Catalogo({ onSelect, onBottomNav }: { onSelect: (id: number) => void; onBottomNav: (s: string) => void }) {
   const [searchNumber, setSearchNumber] = useState('');
   const [selectedCategory, setSelectedCategory] = useState('Todas');
-  
- const categorias = ["Todas", "Ligeras y Detox", "Proteicas", "Vegetarianas", "Energéticas", "Gourmet"];
+
+  const categorias = ['Todas', 'Ligeras y Detox', 'Proteicas', 'Vegetarianas', 'Energéticas', 'Gourmet'];
 
   const filteredEnsaladas = ENSALADAS.filter(e => {
     const matchNumber = searchNumber.trim() === '' || e.id.toString() === searchNumber.trim();
@@ -85,7 +85,7 @@ export function Catalogo({ onSelect, onBottomNav }: { onSelect: (id: number) => 
     <div className="min-h-screen pb-32 bg-background flex flex-col">
       <header className="bg-surface-bright shadow-sm flex justify-between items-center w-full px-gutter-mobile h-16 sticky top-0 z-50">
         <div className="flex items-center gap-4">
-           <span className="material-symbols-outlined text-primary">restaurant_menu</span>
+          <span className="material-symbols-outlined text-primary">restaurant_menu</span>
           <h1 className="font-display-lg-mobile text-display-lg-mobile text-primary">Catálogo</h1>
         </div>
       </header>
@@ -93,8 +93,8 @@ export function Catalogo({ onSelect, onBottomNav }: { onSelect: (id: number) => 
         <div className="bg-surface-container-low p-4 rounded-2xl shadow-sm border border-outline-variant space-y-4">
           <div className="relative">
             <span className="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-on-surface-variant">search</span>
-            <input 
-              type="number" 
+            <input
+              type="number"
               placeholder="Ingresa el número de ensalada (1-100)"
               value={searchNumber}
               onChange={e => setSearchNumber(e.target.value)}
@@ -103,13 +103,13 @@ export function Catalogo({ onSelect, onBottomNav }: { onSelect: (id: number) => 
           </div>
           <div className="flex flex-wrap items-center gap-2 w-full">
             {categorias.map(c => (
-              <button 
+              <button
                 key={c}
                 onClick={() => setSelectedCategory(c)}
                 className={`h-[44px] px-6 rounded-full font-label-md transition-all border ${
-                  selectedCategory === c 
-                  ? 'bg-primary text-on-primary border-primary shadow-sm' 
-                  : 'bg-surface text-on-surface-variant border-outline-variant hover:bg-surface-container'
+                  selectedCategory === c
+                    ? 'bg-primary text-on-primary border-primary shadow-sm'
+                    : 'bg-surface text-on-surface-variant border-outline-variant hover:bg-surface-container'
                 }`}
               >
                 {c}
@@ -119,7 +119,7 @@ export function Catalogo({ onSelect, onBottomNav }: { onSelect: (id: number) => 
         </div>
 
         <h2 className="font-headline-lg text-headline-lg text-on-surface">Elige tu ensalada</h2>
-        
+
         {filteredEnsaladas.length > 0 ? (
           <div className="grid grid-cols-1 gap-4">
             {filteredEnsaladas.map(e => (
@@ -151,7 +151,7 @@ export function Catalogo({ onSelect, onBottomNav }: { onSelect: (id: number) => 
 }
 
 // Pantalla 2: Aderezo
-export function Aderezo({ ensaladaId, onConfirm, onBack }: { ensaladaId: number, onConfirm: (aderezoId: number) => void, onBack: () => void }) {
+export function Aderezo({ ensaladaId, onConfirm, onBack }: { ensaladaId: number; onConfirm: (aderezoId: number) => void; onBack: () => void }) {
   const ensalada = ENSALADAS.find(e => e.id === ensaladaId)!;
   const [selected, setSelected] = useState(ensalada.aderezo_sugerido_id);
 
@@ -208,7 +208,7 @@ export function Aderezo({ ensaladaId, onConfirm, onBack }: { ensaladaId: number,
                     <p className="font-body-md text-body-md text-on-surface-variant">{a.descripcion}</p>
                   </div>
                   <div className="flex items-center justify-start shrink-0">
-                    <button className={selected === a.id ? "bg-primary-container text-white px-4 py-2 rounded-xl font-label-md text-label-md active:scale-95 transition-all w-full sm:w-auto" : "bg-white border-2 border-outline px-4 py-2 rounded-xl font-label-md text-label-md text-on-surface-variant hover:bg-surface-container active:scale-95 transition-all w-full sm:w-auto"}>
+                    <button className={selected === a.id ? 'bg-primary-container text-white px-4 py-2 rounded-xl font-label-md text-label-md active:scale-95 transition-all w-full sm:w-auto' : 'bg-white border-2 border-outline px-4 py-2 rounded-xl font-label-md text-label-md text-on-surface-variant hover:bg-surface-container active:scale-95 transition-all w-full sm:w-auto'}>
                       {selected === a.id ? 'Seleccionado' : 'Seleccionar'}
                     </button>
                   </div>
@@ -218,7 +218,7 @@ export function Aderezo({ ensaladaId, onConfirm, onBack }: { ensaladaId: number,
           </div>
         </section>
       </main>
-      
+
       <div className="fixed bottom-0 left-0 w-full bg-white/80 backdrop-blur-md p-gutter-mobile border-t border-outline-variant flex justify-center items-center h-28 z-40">
         <button onClick={() => onConfirm(selected)} className="bg-primary hover:bg-primary-container text-white w-full max-w-lg min-h-[64px] py-4 px-6 rounded-full font-headline-lg text-headline-lg flex items-center justify-center gap-3 shadow-lg active:scale-95 transition-all text-center">
           Confirmar Aderezo
@@ -230,7 +230,7 @@ export function Aderezo({ ensaladaId, onConfirm, onBack }: { ensaladaId: number,
 }
 
 // Pantalla 3: Porciones
-export function Porciones({ ensaladaId, aderezoId, onConfirm, onBack }: { ensaladaId: number, aderezoId: number, onConfirm: (qty: number) => void, onBack: () => void }) {
+export function Porciones({ ensaladaId, aderezoId, onConfirm, onBack }: { ensaladaId: number; aderezoId: number; onConfirm: (qty: number) => void; onBack: () => void }) {
   const [qty, setQty] = useState(1);
   const ensalada = ENSALADAS.find(e => e.id === ensaladaId)!;
 
@@ -240,18 +240,18 @@ export function Porciones({ ensaladaId, aderezoId, onConfirm, onBack }: { ensala
         <button onClick={onBack} className="material-symbols-outlined text-primary active:scale-95 duration-150">arrow_back</button>
         <h1 className="font-display-lg-mobile text-display-lg-mobile text-primary">Porciones</h1>
       </header>
-      
+
       <main className="flex-grow flex flex-col items-center justify-center px-margin-mobile max-w-md mx-auto w-full text-center">
         <h2 className="font-display-lg-mobile text-display-lg-mobile text-on-background mb-2">{ensalada.nombre}</h2>
         <p className="font-body-lg text-body-lg text-on-surface-variant mb-12">¿Cuántos frascos quieres preparar para tu semana?</p>
-        
+
         <div className="flex items-center justify-center gap-8 bg-[#f0ede4] rounded-full p-2 border border-outline-variant shadow-sm w-full">
           <button onClick={() => setQty(Math.max(1, qty - 1))} className="w-16 h-16 rounded-full bg-white flex items-center justify-center text-primary shadow hover:bg-surface-container active:scale-95 transition-all">
-             <span className="material-symbols-outlined text-3xl">remove</span>
+            <span className="material-symbols-outlined text-3xl">remove</span>
           </button>
           <span className="font-display-lg text-5xl font-bold text-on-surface w-16">{qty}</span>
           <button onClick={() => setQty(qty + 1)} className="w-16 h-16 rounded-full bg-primary flex items-center justify-center text-white shadow hover:bg-primary-container active:scale-95 transition-all">
-             <span className="material-symbols-outlined text-3xl">add</span>
+            <span className="material-symbols-outlined text-3xl">add</span>
           </button>
         </div>
       </main>
@@ -267,18 +267,18 @@ export function Porciones({ ensaladaId, aderezoId, onConfirm, onBack }: { ensala
 }
 
 // Pantalla 4: Bucle (Agregado)
-export function Bucle({ onAddMore, onFinish }: { onAddMore: () => void, onFinish: () => void }) {
+export function Bucle({ onAddMore, onFinish }: { onAddMore: () => void; onFinish: () => void }) {
   return (
     <div className="bg-background text-on-background min-h-screen flex flex-col justify-center items-center px-margin-mobile relative overflow-hidden">
       <div className="absolute top-0 left-0 w-full h-1/2 bg-gradient-to-b from-surface-container-low to-transparent -z-10"></div>
       <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-64 h-64 bg-primary/5 rounded-full blur-3xl -z-10"></div>
-      
+
       <main className="w-full max-w-md flex flex-col items-center text-center">
         <div className="mb-stack-lg relative animate-scale-in opacity-0" style={{ animationFillMode: 'forwards' }}>
           <div className="absolute inset-0 bg-primary/20 rounded-full animate-[ping_2s_cubic-bezier(0,0,0.2,1)_infinite]"></div>
           <div className="relative w-32 h-32 bg-primary-container/20 rounded-full flex items-center justify-center">
             <span className="material-symbols-outlined text-[80px] text-primary icon-fill">
-                check_circle
+              check_circle
             </span>
           </div>
         </div>
@@ -302,7 +302,7 @@ export function Bucle({ onAddMore, onFinish }: { onAddMore: () => void, onFinish
 }
 
 // Pantalla 5: ListaCompras
-export function ListaCompras({ cart, goModoCocina, goInicio, onBottomNav, onUpdateCart, onRemoveItem, onAddMore }: { cart: CartItem[], goModoCocina: () => void, goInicio: () => void; onBottomNav: (s: string) => void; onUpdateCart: (id: string, newQty: number) => void; onRemoveItem: (id: string) => void; onAddMore: () => void; }) {
+export function ListaCompras({ cart, goModoCocina, goInicio, onBottomNav, onUpdateCart, onRemoveItem, onAddMore }: { cart: CartItem[]; goModoCocina: () => void; goInicio: () => void; onBottomNav: (s: string) => void; onUpdateCart: (id: string, newQty: number) => void; onRemoveItem: (id: string) => void; onAddMore: () => void }) {
   const groups = getGroupedIngredients(cart);
 
   const handleWhatsApp = () => {
@@ -323,7 +323,7 @@ export function ListaCompras({ cart, goModoCocina, goInicio, onBottomNav, onUpda
         <section className="space-y-stack-sm">
           <h1 className="font-display-lg text-display-lg text-on-background">Lista de Compras</h1>
           <p className="font-body-lg text-on-surface-variant">Revisa los ingredientes necesarios para tu semana.</p>
-          
+
           <div className="glass-card rounded-xl p-6 mt-6 relative overflow-hidden group">
             <div className="absolute -right-12 -top-12 w-40 h-40 bg-secondary-container rounded-full opacity-20 blur-2xl"></div>
             <div className="flex flex-col gap-4 relative z-10 w-full">
@@ -366,53 +366,43 @@ export function ListaCompras({ cart, goModoCocina, goInicio, onBottomNav, onUpda
               </div>
             </div>
           </div>
-          
+
           <button onClick={onAddMore} className="w-full min-h-[52px] py-3 px-4 bg-transparent text-primary border-2 border-primary border-dashed rounded-xl flex items-center justify-center gap-2 font-label-lg mt-4 hover:bg-primary/5 transition-colors active:scale-[0.98] text-center">
-             <span className="material-symbols-outlined icon-fill">add</span>
-             Agregar otra ensalada
+            <span className="material-symbols-outlined icon-fill">add</span>
+            Agregar otra ensalada
           </button>
         </section>
 
         {Object.entries(groups).map(([catName, items]) => (
-  <section key={catName} className="space-y-stack-md">
-    <div className="flex items-center gap-3 border-b border-surface-variant pb-2">
-      <span className="material-symbols-outlined text-secondary icon-fill">nutrition</span>
-      <h3 className="font-headline-lg text-headline-lg text-on-surface">{catName}</h3>
-    </div>
-    // ... (dentro de ListaCompras, en el .map de groups)
+          <section key={catName} className="space-y-stack-md">
+            <div className="flex items-center gap-3 border-b border-surface-variant pb-2">
+              <span className="material-symbols-outlined text-secondary icon-fill">nutrition</span>
+              <h3 className="font-headline-lg text-headline-lg text-on-surface">{catName}</h3>
+            </div>
 
-    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-     {Object.entries(groups).map(([catName, items]) => (
-  <section key={catName} className="space-y-stack-md">
-    <div className="flex items-center gap-3 border-b border-surface-variant pb-2">
-      <span className="material-symbols-outlined text-secondary icon-fill">nutrition</span>
-      <h3 className="font-headline-lg text-headline-lg text-on-surface">{catName}</h3>
-    </div>
-
-    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-      {Object.entries(items).map(([nombre, data]) => (
-        <label key={nombre} className="glass-card rounded-xl p-4 flex items-center gap-4 cursor-pointer active:scale-[0.98] transition-transform has-[:checked]:bg-surface-container-low has-[:checked]:opacity-50">
-          <input className="checkbox-custom sr-only peer" type="checkbox" />
-          <div className="w-8 h-8 rounded border-2 border-outline flex items-center justify-center transition-colors duration-200 shrink-0 bg-surface-container-lowest peer-checked:bg-primary peer-checked:border-primary">
-            <span className="material-symbols-outlined text-on-primary text-[20px] opacity-0 scale-50 transition-all duration-200 peer-checked:opacity-100 peer-checked:scale-100 icon-fill">check</span>
-          </div>
-          <div className="flex-1 flex items-start gap-4 peer-checked:line-through">
-            <span className="font-label-lg text-primary text-left whitespace-nowrap w-20 shrink-0">
-              {formatearMedida(data.cantidad, data.unidad)}
-            </span>
-            <span className="font-body-lg text-on-surface text-left break-words flex-1 leading-tight mt-[1px]">
-              {nombre}
-            </span>
-          </div>
-        </label>
-      ))}
-    </div>
-  </section>
-))}
-
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              {Object.entries(items).map(([nombre, data]) => (
+                <label key={nombre} className="glass-card rounded-xl p-4 flex items-center gap-4 cursor-pointer active:scale-[0.98] transition-transform has-[:checked]:bg-surface-container-low has-[:checked]:opacity-50">
+                  <input className="checkbox-custom sr-only peer" type="checkbox" />
+                  <div className="w-8 h-8 rounded border-2 border-outline flex items-center justify-center transition-colors duration-200 shrink-0 bg-surface-container-lowest peer-checked:bg-primary peer-checked:border-primary">
+                    <span className="material-symbols-outlined text-on-primary text-[20px] opacity-0 scale-50 transition-all duration-200 peer-checked:opacity-100 peer-checked:scale-100 icon-fill">check</span>
+                  </div>
+                  <div className="flex-1 flex items-start gap-4 peer-checked:line-through">
+                    <span className="font-label-lg text-primary text-left whitespace-nowrap w-20 shrink-0">
+                      {formatearMedida(data.cantidad, data.unidad)}
+                    </span>
+                    <span className="font-body-lg text-on-surface text-left break-words flex-1 leading-tight mt-[1px]">
+                      {nombre}
+                    </span>
+                  </div>
+                </label>
+              ))}
+            </div>
+          </section>
+        ))}
       </main>
 
-       <div className="fixed bottom-[80px] left-0 w-full px-margin-mobile pb-4 pt-6 bg-gradient-to-t from-background via-background to-transparent z-40 max-w-3xl mx-auto right-0 md:bottom-[0px] md:pb-8">
+      <div className="fixed bottom-[80px] left-0 w-full px-margin-mobile pb-4 pt-6 bg-gradient-to-t from-background via-background to-transparent z-40 max-w-3xl mx-auto right-0 md:bottom-[0px] md:pb-8">
         <div className="flex flex-col gap-3">
           <button onClick={handleWhatsApp} className="w-full min-h-[52px] py-3 px-4 bg-primary text-on-primary rounded-full flex items-center justify-center gap-2 font-label-lg shadow-md hover:bg-primary-container transition-colors active:scale-[0.98] text-center">
             <span className="material-symbols-outlined icon-fill">chat</span>
@@ -424,14 +414,14 @@ export function ListaCompras({ cart, goModoCocina, goInicio, onBottomNav, onUpda
           </button>
         </div>
       </div>
+
       <BottomNav active="lista" onNavigate={onBottomNav} />
     </div>
   );
 }
-// <-- AQUI RECIEN CIERRA LA FUNCION ListaCompras
 
 // Preparación
-export function ModoCocina({ cart, onBack, onFinishClear, onBottomNav, onGoCatalogo, onGoHistorial }: { cart: CartItem[], onBack: () => void, onFinishClear: () => void; onBottomNav: (s: string) => void; onGoCatalogo: () => void; onGoHistorial: () => void; }) {
+export function ModoCocina({ cart, onBack, onFinishClear, onBottomNav, onGoCatalogo, onGoHistorial }: { cart: CartItem[]; onBack: () => void; onFinishClear: () => void; onBottomNav: (s: string) => void; onGoCatalogo: () => void; onGoHistorial: () => void }) {
   // Extract unique aderezos
   const uniqueAderezos = Array.from(new Set(cart.map(i => i.aderezoId))).map(id => ADEREZOS.find(a => a.id === id)!);
   // Extract unique ensaladas for assembly steps
@@ -447,7 +437,7 @@ export function ModoCocina({ cart, onBack, onFinishClear, onBottomNav, onGoCatal
         </button>
         <h1 className="ml-4 font-headline-md text-headline-md text-primary font-bold">Ensaladas en Frasco</h1>
       </header>
-      
+
       <main className="max-w-screen-md mx-auto px-margin-mobile pt-stack-sm pb-stack-lg flex-grow flex flex-col w-full">
         {isEmpty ? (
           <div className="flex-grow flex flex-col items-center justify-center text-center space-y-8 py-12">
@@ -478,7 +468,7 @@ export function ModoCocina({ cart, onBack, onFinishClear, onBottomNav, onGoCatal
                 </div>
                 <h3 className="font-headline-lg text-headline-lg text-on-background">1. Preparar Aderezos</h3>
               </div>
-              
+
               <div className="space-y-6">
                 {uniqueAderezos.map(a => (
                   <div key={a.id} className="space-y-4">
@@ -500,34 +490,34 @@ export function ModoCocina({ cart, onBack, onFinishClear, onBottomNav, onGoCatal
                 </div>
                 <h3 className="font-headline-lg text-headline-lg text-on-background">2. Armado (De Abajo hacia Arriba)</h3>
               </div>
-              
-              {uniqueEnsaladas.map(ensalada => (
-                 <div key={ensalada.id} className="mb-12">
-                   <h4 className="font-headline-md text-secondary px-2 mb-4">{ensalada.nombre}</h4>
-                   <div className="space-y-4 relative before:absolute before:inset-0 before:ml-6 before:-translate-x-px md:before:mx-auto md:before:translate-x-0 before:h-full before:w-0.5 before:bg-surface-variant">
-                      {ensalada.pasos_armado.map((paso, idx) => {
-                         const isFirst = idx === 0;
-                         const isLast = idx === ensalada.pasos_armado.length - 1;
-                         const colorClass = isFirst ? 'bg-primary-container text-on-primary-container' : isLast ? 'bg-tertiary-container text-on-tertiary' : 'bg-surface-variant text-on-surface-variant';
-                         const borderColor = isFirst ? 'group-hover:border-primary' : isLast ? 'group-hover:border-tertiary' : '';
 
-                         return (
-                          <div key={idx} className={`relative flex items-center justify-between md:justify-normal group ${idx % 2 !== 0 ? 'md:flex-row-reverse' : ''}`}>
-                            <div className={`flex items-center justify-center w-12 h-12 rounded-full border-4 border-surface-container-lowest shadow-sm z-10 shrink-0 md:mx-auto ${colorClass}`}>
-                              <span className="font-headline-md text-headline-md">{idx + 1}</span>
-                            </div>
-                            <div className={`w-[calc(100%-4rem)] md:w-[calc(50%-3rem)] p-6 rounded-xl border border-outline-variant shadow-sm transition-colors ml-4 md:ml-0 bg-[#f0ede4] ${borderColor} ${idx % 2 !== 0 ? 'md:mr-0' : ''}`}>
-                              <h4 className="font-label-lg text-label-lg mb-1">{paso.titulo}</h4>
-                              <p className="font-body-lg text-body-lg text-on-background">{paso.descripcion}</p>
-                            </div>
+              {uniqueEnsaladas.map(ensalada => (
+                <div key={ensalada.id} className="mb-12">
+                  <h4 className="font-headline-md text-secondary px-2 mb-4">{ensalada.nombre}</h4>
+                  <div className="space-y-4 relative before:absolute before:inset-0 before:ml-6 before:-translate-x-px md:before:mx-auto md:before:translate-x-0 before:h-full before:w-0.5 before:bg-surface-variant">
+                    {ensalada.pasos_armado.map((paso, idx) => {
+                      const isFirst = idx === 0;
+                      const isLast = idx === ensalada.pasos_armado.length - 1;
+                      const colorClass = isFirst ? 'bg-primary-container text-on-primary-container' : isLast ? 'bg-tertiary-container text-on-tertiary' : 'bg-surface-variant text-on-surface-variant';
+                      const borderColor = isFirst ? 'group-hover:border-primary' : isLast ? 'group-hover:border-tertiary' : '';
+
+                      return (
+                        <div key={idx} className={`relative flex items-center justify-between md:justify-normal group ${idx % 2 !== 0 ? 'md:flex-row-reverse' : ''}`}>
+                          <div className={`flex items-center justify-center w-12 h-12 rounded-full border-4 border-surface-container-lowest shadow-sm z-10 shrink-0 md:mx-auto ${colorClass}`}>
+                            <span className="font-headline-md text-headline-md">{idx + 1}</span>
                           </div>
-                         );
-                      })}
-                   </div>
-                 </div>
+                          <div className={`w-[calc(100%-4rem)] md:w-[calc(50%-3rem)] p-6 rounded-xl border border-outline-variant shadow-sm transition-colors ml-4 md:ml-0 bg-[#f0ede4] ${borderColor} ${idx % 2 !== 0 ? 'md:mr-0' : ''}`}>
+                            <h4 className="font-label-lg text-label-lg mb-1">{paso.titulo}</h4>
+                            <p className="font-body-lg text-body-lg text-on-background">{paso.descripcion}</p>
+                          </div>
+                        </div>
+                      );
+                    })}
+                  </div>
+                </div>
               ))}
             </section>
-            
+
             <div className="mt-stack-lg flex justify-center">
               <button onClick={onFinishClear} className="bg-primary text-on-primary min-h-[52px] py-3 px-8 rounded-full font-label-lg text-label-lg shadow-md hover:opacity-90 hover:shadow-lg transition-all active:scale-95 flex items-center justify-center gap-2 text-center w-full sm:w-auto">
                 <span className="material-symbols-outlined icon-fill">done_all</span>
@@ -543,16 +533,16 @@ export function ModoCocina({ cart, onBack, onFinishClear, onBottomNav, onGoCatal
 }
 
 // Historial
-export function Historial({ lists, onOpen, onBack, onDelete, onClear }: { lists: SavedList[], onOpen: (list: SavedList) => void, onBack: () => void, onDelete: (id: string) => void, onClear: () => void }) {
+export function Historial({ lists, onOpen, onBack, onDelete, onClear }: { lists: SavedList[]; onOpen: (list: SavedList) => void; onBack: () => void; onDelete: (id: string) => void; onClear: () => void }) {
   const confirmDelete = (e: React.MouseEvent, id: string) => {
     e.stopPropagation();
-    if (window.confirm("¿Estás seguro de que querés borrar esta lista?")) {
+    if (window.confirm('¿Estás seguro de que querés borrar esta lista?')) {
       onDelete(id);
     }
   };
 
   const confirmClear = () => {
-    if (window.confirm("¿Estás seguro de que querés borrar esta lista?")) { // using exactly the requested prompt, though logically maybe 'todo el historial' would be better. Wait, the prompt says "cualquier acción de borrado (individual o total) debe disparar una alerta nativa (window.confirm) que pregunte: '¿Estás seguro de que querés borrar esta lista?'". Let's follow it precisely.
+    if (window.confirm('¿Estás seguro de que querés borrar esta lista?')) {
       onClear();
     }
   };
@@ -566,7 +556,7 @@ export function Historial({ lists, onOpen, onBack, onDelete, onClear }: { lists:
       <main className="px-margin-mobile pt-stack-md pb-stack-lg flex-grow space-y-stack-md max-w-xl mx-auto w-full flex flex-col">
         {lists.length === 0 ? (
           <div className="text-center py-12 text-on-surface-variant font-body-lg flex-grow flex items-center justify-center">
-             No tienes listas guardadas.
+            No tienes listas guardadas.
           </div>
         ) : (
           <div className="space-y-4 flex-grow flex flex-col">
@@ -585,12 +575,12 @@ export function Historial({ lists, onOpen, onBack, onDelete, onClear }: { lists:
                 </div>
               ))}
             </div>
-            
+
             <div className="pt-8 mt-auto flex justify-center w-full">
-               <button onClick={confirmClear} className="w-full bg-error-container text-on-error-container min-h-[64px] py-4 px-6 rounded-full font-label-lg text-label-lg shadow-sm hover:opacity-90 active:scale-[0.98] transition-all flex items-center justify-center gap-3 border border-error/20 my-4 text-center">
-                 <span className="material-symbols-outlined icon-fill text-[28px]">delete_sweep</span>
-                 Vaciar todo el historial
-               </button>
+              <button onClick={confirmClear} className="w-full bg-error-container text-on-error-container min-h-[64px] py-4 px-6 rounded-full font-label-lg text-label-lg shadow-sm hover:opacity-90 active:scale-[0.98] transition-all flex items-center justify-center gap-3 border border-error/20 my-4 text-center">
+                <span className="material-symbols-outlined icon-fill text-[28px]">delete_sweep</span>
+                Vaciar todo el historial
+              </button>
             </div>
           </div>
         )}
