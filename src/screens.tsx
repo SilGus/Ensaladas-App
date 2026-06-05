@@ -383,31 +383,32 @@ export function ListaCompras({ cart, goModoCocina, goInicio, onBottomNav, onUpda
 
     <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
      {Object.entries(groups).map(([catName, items]) => (
-          <section key={catName} className="space-y-stack-md">
-            <div className="flex items-center gap-3 border-b border-surface-variant pb-2">
-              <span className="material-symbols-outlined text-secondary icon-fill">nutrition</span>
-              <h3 className="font-headline-lg text-headline-lg text-on-surface">{catName}</h3>
-            </div>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-              {Object.entries(items).map(([nombre, data]) => (
-                <label key={nombre} className="glass-card rounded-xl p-4 flex items-center gap-4 cursor-pointer active:scale-[0.98] transition-transform has-[:checked]:bg-surface-container-low has-[:checked]:opacity-50">
-                  <input className="checkbox-custom sr-only peer" type="checkbox" />
-                  <div className="w-8 h-8 rounded border-2 border-outline flex items-center justify-center transition-colors duration-200 shrink-0 bg-surface-container-lowest peer-checked:bg-primary peer-checked:border-primary">
-                    <span className="material-symbols-outlined text-on-primary text-[20px] opacity-0 scale-50 transition-all duration-200 peer-checked:opacity-100 peer-checked:scale-100 icon-fill">check</span>
-                  </div>
-                  <div className="flex-1 flex items-start gap-4 peer-checked:line-through">
-                    <span className="font-label-lg text-primary text-left whitespace-nowrap w-20 shrink-0">
-                      {formatearMedida(data.cantidad, data.unidad)}
-                    </span>
-                    <span className="font-body-lg text-on-surface text-left break-words flex-1 leading-tight mt-[1px]">
-                      {nombre}
-                    </span>
-                  </div>
-                </label>
-              ))}
-            </div>
-          </section>
-        ))}
+  <section key={catName} className="space-y-stack-md">
+    <div className="flex items-center gap-3 border-b border-surface-variant pb-2">
+      <span className="material-symbols-outlined text-secondary icon-fill">nutrition</span>
+      <h3 className="font-headline-lg text-headline-lg text-on-surface">{catName}</h3>
+    </div>
+
+    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+      {Object.entries(items).map(([nombre, data]) => (
+        <label key={nombre} className="glass-card rounded-xl p-4 flex items-center gap-4 cursor-pointer active:scale-[0.98] transition-transform has-[:checked]:bg-surface-container-low has-[:checked]:opacity-50">
+          <input className="checkbox-custom sr-only peer" type="checkbox" />
+          <div className="w-8 h-8 rounded border-2 border-outline flex items-center justify-center transition-colors duration-200 shrink-0 bg-surface-container-lowest peer-checked:bg-primary peer-checked:border-primary">
+            <span className="material-symbols-outlined text-on-primary text-[20px] opacity-0 scale-50 transition-all duration-200 peer-checked:opacity-100 peer-checked:scale-100 icon-fill">check</span>
+          </div>
+          <div className="flex-1 flex items-start gap-4 peer-checked:line-through">
+            <span className="font-label-lg text-primary text-left whitespace-nowrap w-20 shrink-0">
+              {formatearMedida(data.cantidad, data.unidad)}
+            </span>
+            <span className="font-body-lg text-on-surface text-left break-words flex-1 leading-tight mt-[1px]">
+              {nombre}
+            </span>
+          </div>
+        </label>
+      ))}
+    </div>
+  </section>
+))}
 
       </main>
 
